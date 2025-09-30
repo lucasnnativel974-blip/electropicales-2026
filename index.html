@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electropicales Festival</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Couleurs inspiration "Electropicales" 2026 Poster */
+    :root {
+      --main-yellow: #fddc01;
+      --accent-blue: #3d5af1; /* Bleu des écouteurs */
+      --accent-pink: #e91e63; /* Rose/magenta des bandes */
+      --bottom-salmon: #fca36d;
+      --dark-text: #1a1a1a;
+      --light-text: #f5f5f5;
+    }
+    body {
+      background-color: var(--main-yellow);
+      color: var(--dark-text);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+    a, .nav-link {
+      color: var(--dark-text);
+      font-weight: bold;
+    }
+    a:hover, .nav-link:hover {
+      color: var(--accent-blue);
+    }
+    .navbar {
+      background-color: rgba(253, 220, 1, 0.8); /* Jaune semi-transparent */
+      backdrop-filter: blur(5px);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      /* Remplacement de l'image par un fond jaune uni */
+      background-color: var(--main-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--dark-text);
+    }
+    .hero::after {
+      /* Suppression de l'overlay sombre */
+      content: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      text-shadow: 3px 3px 0px var(--accent-blue), 6px 6px 0px var(--accent-pink);
+    }
+    .btn-primary-custom {
+      background-color: var(--accent-blue);
+      border: 2px solid var(--dark-text);
+      color: var(--light-text);
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+      font-weight: bold;
+      box-shadow: 4px 4px 0px var(--dark-text);
+    }
+    .btn-primary-custom:hover {
+      background-color: var(--accent-pink);
+      color: var(--light-text);
+    }
+    .section-title {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 2.5rem;
+      position: relative;
+      color: var(--dark-text);
+      font-weight: bold;
+    }
+    .section-title::after {
+      content: '';
+      width: 100px;
+      height: 4px;
+      background-color: var(--accent-blue);
+      display: block;
+      margin: 0.5rem auto 0;
+    }
+    .card-artist, .card-program {
+      background-color: rgba(255,255,255,0.5);
+      border: 2px solid var(--dark-text);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card-artist:hover, .card-program:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .artist-img, .program-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .footer, .bg-dark-section {
+      background-color: var(--bottom-salmon);
+      color: var(--dark-text);
+      padding: 2rem 0;
+    }
+    .social-icons a {
+      color: var(--dark-text);
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: var(--accent-blue);
+    }
+    /* Responsive ajustements */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Electropicales</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="color: var(--light-text);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#programmation">Programmation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#artistes">Artistes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galerie">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="#infos">Infos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#billetterie">Billetterie</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content container">
+      <h1>17ᵉ Édition des Electropicales</h1>
+      <p class="lead">Du 3 au 11 octobre • Saint-Denis, La Réunion</p>
+      <a href="#billetterie" class="btn btn-primary-custom mt-4">Billetterie</a>
+    </div>
+  </section>
+
+  <!-- Programmation -->
+  <section id="programmation" class="py-5 container">
+    <h2 class="section-title">Programmation</h2>
+    <div class="row g-4">
+      <!-- Exemple de jour / événement -->
+      <div class="col-lg-4">
+        <div class="card-program">
+          <img src="https://example.com/image-programmation1.jpg" class="program-img" alt="Jour 1">
+          <div class="card-body">
+            <h5 class="card-title">Jour 1 — 3 Octobre</h5>
+            <p class="card-text">Lieu A : DJ Neon, Tropic Beats, Sunwave</p>
+            <a href="#artistes" class="btn btn-primary-custom btn-sm">Voir les artistes</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-program">
+          <img src="https://example.com/image-programmation2.jpg" class="program-img" alt="Jour 2">
+          <div class="card-body">
+            <h5 class="card-title">Jour 2 — 4 Octobre</h5>
+            <p class="card-text">Lieu B : Lumina, Wave Runner, …</p>
+            <a href="#artistes" class="btn btn-primary-custom btn-sm">Voir les artistes</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-program">
+          <img src="https://example.com/image-programmation3.jpg" class="program-img" alt="Jour 3">
+          <div class="card-body">
+            <h5 class="card-title">Jour 3 — 5 Octobre</h5>
+            <p class="card-text">Lieu C : Set acoustiques, DJ set nocturne, etc.</p>
+            <a href="#artistes" class="btn btn-primary-custom btn-sm">Voir les artistes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artistes -->
+  <section id="artistes" class="py-5 bg-dark-section">
+    <div class="container">
+      <h2 class="section-title">Les Artistes</h2>
+      <div class="row g-4">
+        <div class="col-md-3 text-center">
+          <div class="card-artist">
+            <img src="https://example.com/artiste1.jpg" class="artist-img" alt="DJ Neon">
+            <div class="card-body">
+              <h5 class="card-title">DJ Neon</h5>
+              <p class="card-text">Electro / Scène électronique</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="card-artist">
+            <img src="https://example.com/artiste2.jpg" class="artist-img" alt="Sunwave">
+            <div class="card-body">
+              <h5 class="card-title">Sunwave</h5>
+              <p class="card-text">Tropical House</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="card-artist">
+            <img src="https://example.com/artiste3.jpg" class="artist-img" alt="Lumina">
+            <div class="card-body">
+              <h5 class="card-title">Lumina</h5>
+              <p class="card-text">Visuels & performance</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="card-artist">
+            <img src="https://example.com/artiste4.jpg" class="artist-img" alt="Wave Runner">
+            <div class="card-body">
+              <h5 class="card-title">Wave Runner</h5>
+              <p class="card-text">Bass / Électro sombre</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie photos -->
+  <section id="galerie" class="py-5 container">
+    <h2 class="section-title">Retour en images</h2>
+    <div class="row g-3 gallery">
+      <div class="col-md-4"><img src="https://example.com/photo1.jpg" alt="Festival photo 1"></div>
+      <div class="col-md-4"><img src="https://example.com/photo2.jpg" alt="Festival photo 2"></div>
+      <div class="col-md-4"><img src="https://example.com/photo3.jpg" alt="Festival photo 3"></div>
+      <div class="col-md-4"><img src="https://example.com/photo4.jpg" alt="Festival photo 4"></div>
+      <div class="col-md-4"><img src="https://example.com/photo5.jpg" alt="Festival photo 5"></div>
+      <div class="col-md-4"><img src="https://example.com/photo6.jpg" alt="Festival photo 6"></div>
+    </div>
+  </section>
+
+  <!-- Infos pratiques -->
+  <section id="infos" class="py-5 bg-dark-section">
+    <div class="container">
+      <h2 class="section-title">Infos Pratiques</h2>
+      <p><strong>Lieu :</strong> Plusieurs sites à Saint-Denis</p>
+      <p><strong>Dates :</strong> 3 – 11 octobre</p>
+      <p><strong>Accès :</strong> Transports en commun, parkings, navettes</p>
+      <p><strong>Merchandising, bénévoles, partenaires :</strong> Découvrez dans les sections dédiées</p>
+    </div>
+  </section>
+
+  <!-- Billetterie -->
+  <section id="billetterie" class="py-5 container text-center">
+    <h2 class="section-title">Billetterie</h2>
+    <a href="#" class="btn btn-primary-custom btn-lg">Acheter les billets</a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 bg-dark-section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control form-control-lg bg-light text-dark" placeholder="Nom / Organisme" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control form-control-lg bg-light text-dark" placeholder="Email" required>
+        </div>
+        <div class="col-12">
+          <textarea class="form-control form-control-lg bg-light text-dark" rows="5" placeholder="Votre message" required></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary-custom btn-lg">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="social-icons mb-3">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-soundcloud"></i></a>
+      </div>
+      <p>&copy; 2025 Electropicales – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS + icons -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FontAwesome pour les icônes sociales -->
+  <script src="https://kit.fontawesome.com/TON_KIT_ID.js" crossorigin="anonymous"></script>
+</body>
+</html>
